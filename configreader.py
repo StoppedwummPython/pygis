@@ -1,3 +1,4 @@
+# very simple config reader
 import json
 
 def readConfig(filepath: str = "config.json"):
