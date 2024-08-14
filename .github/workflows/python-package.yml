@@ -30,4 +30,4 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Run code
       run: |
-        python __main__.py
+        python __main__.py ${{ secrets.PASSWORD }} ${{ secrets.USERNAME }} "https://kst-vechta.de" "https://backend.kst-vechta.de" "https://webdav.kst-vechta.de"
