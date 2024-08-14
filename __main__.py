@@ -5,6 +5,7 @@ from classes.course import *
 from classes.vnc import *
 from functions.requester import *
 from webdav4.client import Client
+import sys
 
 
 class magisSession:
@@ -66,14 +67,14 @@ class magisSession:
 
 if __name__ == "__main__":
     from fernet import Fernet
-    import configreader
-    cfg = configreader.readConfig()
-    crypt = Fernet(cfg["encKey"].encode())
-    pwd = crypt.decrypt(cfg["pass"].encode()).decode()
-    username = cfg["user"]
-    frontend = cfg["frontend"]
-    backend = cfg["backend"]
-    webdav = cfg["webdav"]
+    #import configreader
+    #cfg = configreader.readConfig()
+    #crypt = Fernet(cfg["encKey"].encode())
+    pwd = sys.argv[1]
+    username = sys.argv[2]
+    frontend = sys.argv[3]
+    backend = sys.argv[4]
+    webdav = sys.argv[5]
     
 
     s = magisSession(frontend, backend, webdav)
