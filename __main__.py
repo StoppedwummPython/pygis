@@ -79,13 +79,6 @@ if __name__ == "__main__":
 
     s = magisSession(frontend, backend, webdav)
     s.login(username, pwd)
-    print(s.loggedIn.creationTime.second)
-    print(s.isLoggedIn)
-    print(s.cookies)
-    courses = s.getCourses()
-    print(courses[0].gid)
-    print(s.getApps()[0].displayName)
-    print(s.webdavClient.ls("/"))
     
     s.logOut()
 
