@@ -55,6 +55,14 @@ class magisSession:
             apps.append(app)
         return apps
     
+    def getContainers(self):
+        cr = CreateRequest(getRoute(self.bck, "/api/web/vnc-containers"), cookies=self.cookies, method="GET")
+        parsed = cr.json()
+        containers = []
+        for entry in parsed["entries"]:
+            containers.append(vncContainer(json.dumps(entry["entry"])))
+        return containers
+            
     def logOut(self):
         if self.isLoggedIn:
             res = CreateRequest(getRoute(self.bck, "/api/web/auth/logout"), cookies=self.cookies)
