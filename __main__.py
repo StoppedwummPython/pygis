@@ -7,6 +7,8 @@ from functions.requester import *
 from webdav4.client import Client
 import sys
 
+raise ConnectionError("Test")
+
 
 class magisSession:
     isLoggedIn = False
