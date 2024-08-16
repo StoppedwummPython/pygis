@@ -21,7 +21,7 @@ class user:
         isEmployee = False
         isTeacher = False
         isAdmin = False
-        def __init__(s, userInfo: dict | None = None):
+        def __init__(s, userInfo: dict | None = None, onlyUser: bool = False) -> None:
             print(userInfo)
             if userInfo == None:
                 return
@@ -46,5 +46,8 @@ class user:
             s.sid = p["sid"]
             s.uid = p["uid"]
             perms = {}
+
+            if onlyUser:
+                 return
             for name, action in userInfo["availableActions"].items():
                 perms[name] = Permission(action, name)

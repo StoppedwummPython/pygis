@@ -21,7 +21,7 @@ class magisSession:
             "Password": password
         }))
         self.cookies = loginrq.cookies
-        u = user(loginrq.json())
+        u = user(loginrq.json(), True)
         self.loggedIn = u
         self.isLoggedIn = True
         self.webdavClient = Client(self.wbd, auth=(username, password))
