@@ -25,7 +25,12 @@ class user:
             print(userInfo)
             if userInfo == None:
                 return
-            p = userInfo["entry"]
+            
+            p: dict
+            if onlyUser:
+                 p = userInfo
+            else:
+                 p = userInfo["entry"]
             s.creationTime = datetime.datetime.fromisoformat(p["creationTime"])
             s.displayName = p["displayName"]
             s.userName = p["userName"]
