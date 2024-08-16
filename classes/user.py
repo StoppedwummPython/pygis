@@ -45,5 +45,5 @@ class user:
             s.sid = p["sid"]
             s.uid = p["uid"]
             perms = {}
-            for name, action in p["availableActions"].items:
+            for name, action in p["availableActions"].items():
                 perms[name] = Permission(action, name)
