@@ -87,8 +87,8 @@ if __name__ == "__main__":
 
     s = magisSession(frontend, backend, webdav)
     s.login(username, pwd)
-    
-    print(s.getApps()[1].name)
+    con = s.getApps()[1].startApp(s.bck, s.cookies)
+    print(con.status)
     s.logOut()
 
 
