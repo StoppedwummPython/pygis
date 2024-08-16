@@ -21,9 +21,9 @@ class vncApp:
             self.appSourceName: str = parsed["appSourceName"]
             self.appSourceDisplayName: str = parsed["appSourceDisplayName"]
         def startApp(self, backend: str, cookies: requests.cookies.RequestsCookieJar):
-            r = CreateRequest(getRoute(backend, "/api/web/apps/" + self.name), cookies=cookies)
+            r = createRequest(getRoute(backend, "/api/web/apps/" + self.name), cookies=cookies)
             name = r.text
-            cr = CreateRequest(getRoute(backend, "/api/web/vnc-containers/" + name), cookies=cookies, method="GET")
+            cr = createRequest(getRoute(backend, "/api/web/vnc-containers/" + name), cookies=cookies, method="GET")
             ob = vncContainer(json.dumps(cr.text))
             return ob
 

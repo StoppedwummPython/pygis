@@ -16,7 +16,7 @@ class magisSession:
         self.wbd = webdav
     
     def login(self, username: str, password: str):
-        loginrq = CreateRequest(getRoute(self.bck, "/api/web/auth/login"), json.dumps({
+        loginrq = createRequest(getRoute(self.bck, "/api/web/auth/login"), json.dumps({
             "UserNameOrMail": username,
             "Password": password
         }))
@@ -28,7 +28,7 @@ class magisSession:
         return u
     
     def getUsers(self):
-        ur = CreateRequest(getRoute(self.bck, "/api/web/users"), cookies=self.cookies, method="GET")
+        ur = createRequest(getRoute(self.bck, "/api/web/users"), cookies=self.cookies, method="GET")
         parsed = ur.json()
         users: list[user] = []
         for entry in parsed["entries"]:
@@ -38,7 +38,7 @@ class magisSession:
         return users
     
     def getCourses(self):
-        cr = CreateRequest(getRoute(self.bck, "/api/web/courses"), cookies=self.cookies, method="GET")
+        cr = createRequest(getRoute(self.bck, "/api/web/courses"), cookies=self.cookies, method="GET")
         pcr = cr.json()
         courses: list[course] = []
         for entry in pcr["entries"]:
@@ -46,7 +46,7 @@ class magisSession:
         return courses
     
     def getApps(self):
-        ar = CreateRequest(getRoute(self.bck, "/api/web/apps"), cookies=self.cookies, method="GET")
+        ar = createRequest(getRoute(self.bck, "/api/web/apps"), cookies=self.cookies, method="GET")
         parsed = ar.json()
         apps: list[vncApp] = []
         for entry in parsed["entries"]:
@@ -56,7 +56,7 @@ class magisSession:
         return apps
     
     def getContainers(self):
-        cr = CreateRequest(getRoute(self.bck, "/api/web/vnc-containers"), cookies=self.cookies, method="GET")
+        cr = createRequest(getRoute(self.bck, "/api/web/vnc-containers"), cookies=self.cookies, method="GET")
         parsed = cr.json()
         containers = []
         for entry in parsed["entries"]:
@@ -65,7 +65,7 @@ class magisSession:
             
     def logOut(self):
         if self.isLoggedIn:
-            res = CreateRequest(getRoute(self.bck, "/api/web/auth/logout"), cookies=self.cookies)
+            res = createRequest(getRoute(self.bck, "/api/web/auth/logout"), cookies=self.cookies)
             if res.ok:
                 self.isLoggedIn = False
                 self.loggedIn = user()
