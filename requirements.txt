@@ -1,5 +1,2 @@
 requests==2.32.3
 webdav4==0.10.0
-
-# Can be removed in Production as this is only required for testing
-fernet==1.0.1

@@ -1,7 +1,6 @@
 import sys
 from everything import *
 if __name__ == "__main__":
-    from fernet import Fernet
     #import configreader
     #cfg = configreader.readConfig()
     #crypt = Fernet(cfg["encKey"].encode())
