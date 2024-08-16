@@ -22,6 +22,7 @@ class user:
         isTeacher = False
         isAdmin = False
         def __init__(s, userInfo: dict | None = None):
+            print(userInfo)
             if userInfo == None:
                 return
             p = userInfo["entry"]
