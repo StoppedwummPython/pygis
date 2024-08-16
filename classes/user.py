@@ -1,5 +1,6 @@
 import json
 import datetime
+from classes.permissions import *
 class user:
         userName = ""
         firstName = ""
