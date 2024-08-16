@@ -44,3 +44,6 @@ class user:
             s.roleGroups = p["roleGroups"]
             s.sid = p["sid"]
             s.uid = p["uid"]
+            perms = {}
+            for name, action in p["availableActions"].items:
+                perms[name] = Permission(action, name)
