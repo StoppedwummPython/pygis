@@ -21,10 +21,10 @@ class user:
         isEmployee = False
         isTeacher = False
         isAdmin = False
-        def __init__(s, userInfo: str | None = None):
+        def __init__(s, userInfo: dict | None = None):
             if userInfo == None:
                 return
-            p = json.loads(userInfo)
+            p = userInfo["entry"]
             s.creationTime = datetime.datetime.fromisoformat(p["creationTime"])
             s.displayName = p["displayName"]
             s.userName = p["userName"]
@@ -45,5 +45,5 @@ class user:
             s.sid = p["sid"]
             s.uid = p["uid"]
             perms = {}
-            for name, action in p["availableActions"].items():
+            for name, action in userInfo["availableActions"].items():
                 perms[name] = Permission(action, name)

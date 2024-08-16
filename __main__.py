@@ -21,7 +21,7 @@ class magisSession:
             "Password": password
         }))
         self.cookies = loginrq.cookies
-        u = user(loginrq.text)
+        u = user(loginrq.json())
         self.loggedIn = u
         self.isLoggedIn = True
         self.webdavClient = Client(self.wbd, auth=(username, password))
@@ -32,7 +32,7 @@ class magisSession:
         parsed = ur.json()
         users: list[user] = []
         for entry in parsed["entries"]:
-            urev = json.dumps(entry["entry"])
+            urev = entry
             u = user(urev)
             users.append(u)
         return users
