@@ -87,7 +87,7 @@ if __name__ == "__main__":
 
     s = magisSession(frontend, backend, webdav)
     s.login(username, pwd)
-    print(s.getUsers()[0].avaibleActions["edit"].name)
+    print(s.getUsers()[0].avaibleActions["edit"].permName)
     s.logOut()
 
 
