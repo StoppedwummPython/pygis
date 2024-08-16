@@ -87,7 +87,7 @@ if __name__ == "__main__":
 
     s = magisSession(frontend, backend, webdav)
     s.login(username, pwd)
-    s.getUsers()
+    print(s.getUsers()[0].avaibleActions["l"].name)
     s.logOut()
 
 
