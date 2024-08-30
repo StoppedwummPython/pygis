@@ -1,6 +1,7 @@
 import json
 class course:
         def __init__(se, infoString: str) -> None:
+            # Parse all objects
             parsed = json.loads(infoString)
             se.name: str = parsed["name"]
             se.mail: str = parsed["mail"]
