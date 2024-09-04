@@ -30,7 +30,7 @@ class user:
                  p = userInfo
             else:
                  p = userInfo["entry"]
-            s.creationTime = datetime.datetime.fromisoformat(p["creationTime"])
+            s.creationTime: datetime.datetime = datetime.datetime.fromisoformat(p["creationTime"])
             s.displayName = p["displayName"]
             s.userName = p["userName"]
             s.dn = p["dn"]
