@@ -25,7 +25,7 @@
 ## VNC
 ### VNC Container
 ```python
-s.id: str = p["id"]
+        s.id: str
         s.creationTime: str 
         s.appName: str
         s.displayName: str
@@ -36,7 +36,7 @@ s.id: str = p["id"]
         s.accessors: dict[s.accessor]
         s.status: str
         s.lastStatusUpdate: str
-        s.nodeName: str = p["nodeName"]
+        s.nodeName: str
         s.connectInfo: dict[s.connectInfoClass]
         s.dockerContainerName: str
         s.dockerContainerIp: str
